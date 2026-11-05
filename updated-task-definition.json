@@ -1,0 +1,86 @@
+{
+  "taskDefinitionArn": "arn:aws:ecs:us-east-1:545897423441:task-definition/ecommerce-task:1",
+  "containerDefinitions": [
+    {
+      "name": "ecommerce-container",
+      "image": "545897423441.dkr.ecr.us-east-1.amazonaws.com/ecommerce-app:v1",
+      "cpu": 0,
+      "portMappings": [
+        {
+          "containerPort": 3000,
+          "hostPort": 3000,
+          "protocol": "tcp",
+          "name": "ecommerce-container-5000-tcp",
+          "appProtocol": "http"
+        }
+      ],
+      "essential": true,
+      "environment": [],
+      "environmentFiles": [],
+      "mountPoints": [],
+      "volumesFrom": [],
+      "ulimits": [],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/ecommerce-app",
+          "awslogs-create-group": "true",
+          "awslogs-region": "us-east-1",
+          "awslogs-stream-prefix": "ecs"
+        },
+        "secretOptions": []
+      },
+      "systemControls": []
+    }
+  ],
+  "family": "ecommerce-task",
+  "executionRoleArn": "arn:aws:iam::545897423441:role/LabRole",
+  "networkMode": "awsvpc",
+  "revision": 1,
+  "volumes": [],
+  "status": "ACTIVE",
+  "requiresAttributes": [
+    {
+      "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
+    },
+    {
+      "name": "ecs.capability.execution-role-awslogs"
+    },
+    {
+      "name": "com.amazonaws.ecs.capability.ecr-auth"
+    },
+    {
+      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+    },
+    {
+      "name": "ecs.capability.execution-role-ecr-pull"
+    },
+    {
+      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+    },
+    {
+      "name": "ecs.capability.task-eni"
+    },
+    {
+      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
+    }
+  ],
+  "placementConstraints": [],
+  "compatibilities": [
+    "EC2",
+    "MANAGED_INSTANCES",
+    "FARGATE"
+  ],
+  "runtimePlatform": {
+    "cpuArchitecture": "X86_64",
+    "operatingSystemFamily": "LINUX"
+  },
+  "requiresCompatibilities": [
+    "FARGATE"
+  ],
+  "cpu": "1024",
+  "memory": "3072",
+  "registeredAt": "2026-11-05T05:34:56.473000+00:00",
+  "registeredBy": "arn:aws:sts::545897423441:assumed-role/voclabs/user5269846=yash_mahala",
+  "enableFaultInjection": false
+}
